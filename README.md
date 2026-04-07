@@ -1,33 +1,31 @@
 # 🚀 Multithreading Performance Analysis using C++
 
 ## 📌 Overview
-This project demonstrates the use of **multithreading in C++** to optimize matrix multiplication. The goal is to analyze how execution time varies with different numbers of threads and to understand the relationship between performance and CPU cores.
+This project demonstrates the use of multithreading in C++ to optimize matrix multiplication. It analyzes how execution time changes with different numbers of threads and how this relates to CPU cores.
 
 ---
 
 ## 🎯 Objective
 - Implement matrix multiplication using multithreading  
 - Compare execution time for different thread counts  
-- Identify optimal thread usage based on system capabilities  
+- Identify optimal thread usage  
 
 ---
 
 ## ⚙️ Methodology
-
-- A constant matrix **B** is generated once.
-- Multiple random matrices **A** are generated.
-- Each matrix is multiplied with matrix **B**.
-- The workload is divided among threads by splitting matrix rows.
-- Execution time is recorded for thread counts ranging from **1 to 12**.
+- A constant matrix B is generated once  
+- Multiple random matrices A are generated  
+- Each A is multiplied with B  
+- Work is divided among threads (row-wise)  
+- Execution time is recorded for threads from 1 to 12  
 
 ---
 
 ## 🧵 Multithreading Approach
-
-- Each thread is assigned a subset of rows from the result matrix.
-- Threads execute in parallel to improve computation speed.
-- All threads are synchronized using \`join()\` before proceeding.
-- The program repeats the computation multiple times to simulate real workload.
+- Each thread processes a subset of rows  
+- Threads run in parallel  
+- Synchronization using `join()`  
+- Repeated computation simulates real workload  
 
 ---
 
@@ -63,58 +61,52 @@ This project demonstrates the use of **multithreading in C++** to optimize matri
 ---
 
 ## 🧠 Key Observations
-
-- Execution time decreases significantly as the number of threads increases.
-- Performance continues improving even beyond the number of physical cores (**6 cores**).
-- The best performance is observed around **10 threads**.
-- After this point, performance stabilizes due to **thread overhead and context switching**.
-- This shows that optimal thread count may slightly exceed core count depending on workload.
+- Execution time decreases as threads increase  
+- Performance improves beyond 6 cores due to workload distribution  
+- Best performance observed around 10 threads  
+- After that, overhead causes stabilization  
 
 ---
 
 ## ⚠️ Note
-
-Due to hardware limitations, matrix size and number of iterations were reduced while maintaining the behavior of multithreading for analysis purposes.
+Matrix size and iterations were reduced due to hardware constraints.
 
 ---
 
 ## 🛠️ Technologies Used
-
-- **C++**
-- **Multithreading (\`std::thread\`)**
-- **MinGW-w64 (GCC 15)**
-- **Google Sheets / Excel (for graph)**
+- C++
+- Multithreading (`std::thread`)
+- MinGW-w64 (GCC 15)
+- Excel / Google Sheets  
 
 ---
 
 ## ▶️ How to Run
 
-\`\`\`bash
+```bash
 g++ main.cpp -o main -pthread -std=c++11
 ./main
-\`\`\`
+```
 
 ---
 
 ## 📂 Project Structure
 
-\`\`\`
+```
 multithreading-assignment/
 │
 ├── main.cpp
 ├── README.md
 ├── graph.png
 └── cpu_usage.png
-\`\`\`
+```
 
 ---
 
 ## 💡 Conclusion
-
-This project demonstrates how multithreading can significantly improve performance in computational tasks. It also highlights that optimal performance depends not only on hardware (CPU cores) but also on how effectively workload is distributed among threads.
+Multithreading significantly improves performance, but optimal results depend on balancing threads with system capabilities.
 
 ---
 
 ## 👨‍💻 Author
-
 Yash Sharma
